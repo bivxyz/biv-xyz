@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicholas Bivens — I help businesses get found by AI</title>
+<meta name="description" content="Nicholas Bivens (biv) builds tools for AI search and writes about getting found by ChatGPT, Perplexity, and Gemini.">
+
+<link rel="canonical" href="https://biv.xyz/">
+<meta property="og:title" content="Nicholas Bivens — I help businesses get found by AI">
+<meta property="og:description" content="I build tools for AI search and write about it before everyone else does.">
+<meta property="og:url" content="https://biv.xyz/">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://biv.xyz/biv.jpg">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" type="image/jpeg" href="/biv.jpg">
+
+<!--
+  GEO: Person + ProfilePage schema, semantic HTML, freshness dates.
+  FILL BEFORE SHIP:
+  [ ] {{BREVO_FORM_ACTION_URL}} - your Brevo hosted-form endpoint (no API key exposed)
+-->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "dateCreated": "2026-06-18",
+  "dateModified": "2026-06-18",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://biv.xyz/#nicholas-bivens",
+    "name": "Nicholas Bivens",
+    "alternateName": "biv",
+    "description": "Builds tools for AI search and writes about getting found by ChatGPT, Perplexity, Gemini, and Claude.",
+    "url": "https://biv.xyz",
+    "image": "https://biv.xyz/biv.jpg",
+    "knowsAbout": ["AI search optimization", "Generative Engine Optimization", "citation rate", "schema markup", "llms.txt"],
+    "sameAs": ["https://bivnft.com", "https://www.linkedin.com/in/bivens/"]
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0c0c0d; --surface:#161617; --ink:#f4f2ec; --muted:#9a9a92;
+    --line:#2a2a2c; --gold:#f2b441;
+    --hand:"Caveat", cursive;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+    --body:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg); color:var(--ink); font-family:var(--body); line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+  a{color:inherit; text-decoration:none}
+  ::selection{background:var(--gold); color:#000}
+
+  .wrap{max-width:860px; margin:0 auto; padding:0 28px}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+
+  header{padding:20vh 0 13vh}
+  .hero{display:grid; gap:40px; align-items:center}
+  @media(min-width:740px){.hero{grid-template-columns:minmax(0,1fr) minmax(200px,280px)}}
+  .hero h1{font-family:var(--hand); font-weight:700; font-size:clamp(48px,9vw,96px); line-height:.95; letter-spacing:.5px; max-width:12ch; margin-top:30px}
+  .hero h1 .gold{color:var(--gold)}
+  .hero-sub{margin-top:26px; max-width:44ch; font-size:18px; color:var(--muted)}
+  .hero-sub b{color:var(--ink); font-weight:500}
+
+  .hero-portrait{position:relative; margin:0; justify-self:center; width:100%; max-width:280px}
+  .hero-portrait::before{content:""; position:absolute; inset:6% 8% 2%; z-index:0;
+    background:radial-gradient(58% 52% at 50% 40%, rgba(242,180,65,.20), transparent 72%); filter:blur(6px)}
+  .hero-portrait img{position:relative; z-index:1; display:block; width:100%; height:auto;
+    filter:invert(1); mix-blend-mode:screen; opacity:.96}
+  @media(max-width:739px){.hero-portrait{max-width:200px; order:-1; margin-bottom:4px}}
+
+  .marker{position:relative; display:inline-block; padding:0 .12em}
+  .marker svg{position:absolute; inset:-22% -8% -28%; width:116%; height:150%; overflow:visible; pointer-events:none}
+  .marker svg path{fill:none; stroke:var(--ink); stroke-width:3; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; stroke-dasharray:2000; stroke-dashoffset:2000; animation:draw 1.3s .35s cubic-bezier(.6,.05,.3,1) forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  .scribble{position:relative; white-space:nowrap}
+  .scribble svg{position:absolute; left:-4%; right:-4%; bottom:-.42em; width:108%; height:.5em; overflow:visible}
+  .scribble svg path{fill:none; stroke:var(--gold); stroke-width:3.5; stroke-linecap:round; vector-effect:non-scaling-stroke; stroke-dasharray:600; stroke-dashoffset:600; animation:draw 1s .6s ease forwards}
+
+  section{padding:9vh 0; border-top:1px solid var(--line)}
+  .lede{font-family:var(--hand); font-weight:600; font-size:clamp(30px,5vw,46px); line-height:1.1; margin-bottom:20px}
+  .prose{font-size:18px; max-width:52ch; color:#cfcdc6}
+  .prose b{color:var(--ink); font-weight:500}
+
+  .built{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:30px}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px 22px; transition:border-color .2s, transform .2s}
+  .card:hover{border-color:#3a3a3d; transform:translateY(-2px)}
+  .card .tag{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold)}
+  .card h3{font-family:var(--hand); font-weight:700; font-size:27px; margin:6px 0 6px; line-height:1}
+  .card p{font-size:14px; color:var(--muted); line-height:1.5}
+
+  .sub-card{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:30px 30px 32px; margin-top:6px}
+  .sub-form{display:flex; gap:10px; margin-top:20px; flex-wrap:wrap}
+  .sub-form input{flex:1; min-width:200px; background:var(--bg); border:1px solid var(--line); color:var(--ink); font-family:var(--mono); font-size:15px; padding:14px 16px; border-radius:10px}
+  .sub-form input::placeholder{color:#5f5f59}
+  .sub-form input:focus{outline:none; border-color:var(--gold)}
+  .sub-form button{background:var(--gold); color:#000; border:none; font-family:var(--mono); font-weight:500; font-size:15px; padding:14px 24px; border-radius:10px; cursor:pointer; transition:filter .2s}
+  .sub-form button:hover{filter:brightness(1.08)}
+  .fineprint{font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:14px}
+  .sub-ok{font-family:var(--hand); font-weight:600; font-size:30px; color:var(--gold); margin-top:18px}
+
+  footer{padding:8vh 0 11vh; border-top:1px solid var(--line)}
+  footer .sig{font-family:var(--hand); font-weight:600; font-size:34px}
+  footer .fine{font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:12px; max-width:46ch; line-height:1.6}
+  footer time{color:#7c7c74}
+  a.txt{color:var(--gold); border-bottom:1px solid transparent; transition:border-color .2s}
+  a.txt:hover{border-color:var(--gold)}
+
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:3px}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1)}
+  .reveal.in{opacity:1; transform:none}
+  .built .card{opacity:0; transform:translateY(18px); transition:border-color .2s, transform .7s cubic-bezier(.4,0,.2,1), opacity .7s cubic-bezier(.4,0,.2,1)}
+  .built.in .card{opacity:1; transform:none; transition-delay:calc(var(--i) * 90ms)}
+  .built.in .card:hover{transform:translateY(-2px)}
+
+  @media (max-width:560px){header{padding:14vh 0 9vh}.built{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){.marker svg path,.scribble svg path{animation:none; stroke-dashoffset:0}html{scroll-behavior:auto}.reveal,.built .card{opacity:1; transform:none; transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hero">
+    <div class="hero-text">
+      <p class="eyebrow">nicholas bivens &nbsp;//&nbsp; biv.xyz</p>
+      <h1>i help businesses get found by
+        <span class="marker">
+          <span class="gold">AI</span>
+          <svg viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M28 34 C70 20, 150 18, 178 30 C190 35, 188 70, 176 84 C160 98, 60 96, 30 88 C14 83, 14 50, 26 36 C30 32, 40 30, 52 30"/>
+          </svg>
+        </span>
+      </h1>
+      <p class="hero-sub">when customers ask chatgpt or perplexity a question, i make sure <b>your brand is the answer.</b></p>
+    </div>
+    <figure class="hero-portrait">
+      <img src="/biv.jpg" width="1024" height="1024" alt="Line drawing of Nicholas Bivens" fetchpriority="high">
+    </figure>
+  </div>
+</header>
+
+<section style="border-top:none; padding-top:4vh">
+  <div class="wrap">
+    <p class="lede reveal">i stopped measuring<br>rankings.</p>
+    <p class="prose reveal">nobody scrolls to position 4 anymore - they read what the AI hands them. so i measure <span class="scribble">citation rate<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M4 7 C50 11, 90 3, 130 6 C160 8, 180 5, 196 7"/></svg></span> instead: how often the machine names <b>you</b>. that's the number that moves revenue now.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="lede reveal">i build the things<br>i write about.</p>
+    <div class="built">
+      <div class="card" style="--i:0"><span class="tag">wp plugin</span><h3>WooGEO</h3><p>makes woocommerce stores legible to AI.</p></div>
+      <div class="card" style="--i:1"><span class="tag">tool</span><h3>SwipeMap</h3><p>tinder for url cleanup. swipe keep / cut.</p></div>
+      <div class="card" style="--i:2"><span class="tag">build skill</span><h3>GEO Web Build</h3><p>sites that ship AI-ready from the first draft.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="lede reveal">i show up early.</p>
+    <p class="prose reveal">wrote a book on NFTs before that was a thing. AI search is the next wave - and most businesses are already invisible. <a class="txt" href="https://bivnft.com">that's the gap i live in.</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="lede reveal">i write about all this.</p>
+    <div class="sub-card reveal">
+      <p class="prose" style="max-width:40ch">~once a week. a few hundred smart people already read it. you should too.</p>
+      <form class="sub-form" id="subForm" action="{{BREVO_FORM_ACTION_URL}}" method="POST">
+        <input type="email" name="EMAIL" required autocomplete="email" placeholder="you@email.com" aria-label="Email address">
+        <button type="submit">subscribe &rarr;</button>
+      </form>
+      <p class="sub-ok" id="subOk" role="status" aria-live="polite" hidden>you're in. (check your inbox.)</p>
+      <p class="fineprint">no spam, ever. unsubscribe in one click.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="sig">- biv</p>
+    <p class="fine">vibe coded. and yes... it's optimized for AI search - view source, check the schema. updated <time datetime="2026-06-18">june 2026</time>.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('subForm').addEventListener('submit', function(e){
+    var form = e.target, email = form.EMAIL.value.trim();
+    if(!email) return;
+    e.preventDefault();
+    fetch(form.action, {method:'POST', mode:'no-cors', body:new FormData(form)})
+      .finally(function(){
+        form.hidden = true;
+        document.getElementById('subOk').hidden = false;
+      });
+  });
+
+  (function(){
+    var els = document.querySelectorAll('.reveal, .built');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {rootMargin:'0px 0px -10% 0px', threshold:0.15});
+    els.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
