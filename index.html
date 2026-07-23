@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nicholas Bivens — I help businesses get found by AI</title>
-<meta name="description" content="Nicholas Bivens (biv) builds tools for AI search and writes about getting found by ChatGPT, Perplexity, and Gemini.">
+<title>Nicholas Bivens (biv) | Vibe Coding &amp; Building in Public</title>
+<meta name="description" content="Nicholas Bivens builds websites and small tools with Claude and ChatGPT. Build logs, working projects, and what breaks along the way. New builds most weeks.">
 
 <link rel="canonical" href="https://biv.xyz/">
-<meta property="og:title" content="Nicholas Bivens — I help businesses get found by AI">
-<meta property="og:description" content="I build tools for AI search and write about it before everyone else does.">
+<meta property="og:title" content="Nicholas Bivens (biv) | Building Websites With AI">
+<meta property="og:description" content="Solo builder. I turn ideas into working sites with Claude and ChatGPT, then write about what actually worked.">
 <meta property="og:url" content="https://biv.xyz/">
 <meta property="og:type" content="profile">
 <meta property="og:image" content="https://biv.xyz/biv.jpg">
@@ -20,6 +20,7 @@
   GEO: Person + ProfilePage schema, semantic HTML, freshness dates.
   FILL BEFORE SHIP:
   [ ] {{BREVO_FORM_ACTION_URL}} - your Brevo hosted-form endpoint (no API key exposed)
+  [ ] update dateModified below on each meaningful edit
 -->
 
 <script type="application/ld+json">
@@ -27,17 +28,22 @@
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   "dateCreated": "2026-06-18",
-  "dateModified": "2026-06-18",
+  "dateModified": "2026-07-23",
   "mainEntity": {
     "@type": "Person",
     "@id": "https://biv.xyz/#nicholas-bivens",
     "name": "Nicholas Bivens",
     "alternateName": "biv",
-    "description": "Builds tools for AI search and writes about getting found by ChatGPT, Perplexity, Gemini, and Claude.",
+    "description": "Nicholas Bivens (biv) is a solo builder who ships websites and small tools using AI coding assistants, and writes build logs in public.",
     "url": "https://biv.xyz",
     "image": "https://biv.xyz/biv.jpg",
-    "knowsAbout": ["AI search optimization", "Generative Engine Optimization", "citation rate", "schema markup", "llms.txt"],
-    "sameAs": ["https://bivnft.com", "https://www.linkedin.com/in/bivens/"]
+    "knowsAbout": ["vibe coding", "AI-assisted web development", "building in public", "Claude Code", "WordPress plugin development", "static site development"],
+    "sameAs": [
+      "https://github.com/bivxyz",
+      "https://www.linkedin.com/in/bivens/",
+      "https://anchoriq.com",
+      "https://bivnft.com"
+    ]
   }
 }
 </script>
@@ -93,13 +99,13 @@
   .prose b{color:var(--ink); font-weight:500}
 
   .built{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:30px}
-  .card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px 22px; transition:border-color .2s, transform .2s}
+  .card{display:block; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px 22px; transition:border-color .2s, transform .2s}
   .card:hover{border-color:#3a3a3d; transform:translateY(-2px)}
   .card .tag{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold)}
   .card h3{font-family:var(--hand); font-weight:700; font-size:27px; margin:6px 0 6px; line-height:1}
   .card p{font-size:14px; color:var(--muted); line-height:1.5}
 
-  .sub-card{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:30px 30px 32px; margin-top:6px}
+  .panel{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:30px 30px 32px; margin-top:6px}
   .sub-form{display:flex; gap:10px; margin-top:20px; flex-wrap:wrap}
   .sub-form input{flex:1; min-width:200px; background:var(--bg); border:1px solid var(--line); color:var(--ink); font-family:var(--mono); font-size:15px; padding:14px 16px; border-radius:10px}
   .sub-form input::placeholder{color:#5f5f59}
@@ -108,6 +114,16 @@
   .sub-form button:hover{filter:brightness(1.08)}
   .fineprint{font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:14px}
   .sub-ok{font-family:var(--hand); font-weight:600; font-size:30px; color:var(--gold); margin-top:18px}
+  .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+
+  .gh-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap}
+  .gh-chart{width:100%; margin-top:18px; display:block}
+  .gh-list{list-style:none; margin-top:22px; font-family:var(--mono); font-size:13px; line-height:1.9}
+  .gh-list li{display:flex; gap:10px; flex-wrap:wrap; align-items:baseline; padding:5px 0; border-top:1px solid var(--line)}
+  .gh-list li:first-child{border-top:none}
+  .gh-repo{color:var(--gold)}
+  .gh-msg{color:var(--muted); flex:1; min-width:160px}
+  .gh-date{color:#5f5f59; font-size:12px}
 
   footer{padding:8vh 0 11vh; border-top:1px solid var(--line)}
   footer .sig{font-family:var(--hand); font-weight:600; font-size:34px}
@@ -134,7 +150,7 @@
   <div class="wrap hero">
     <div class="hero-text">
       <p class="eyebrow">nicholas bivens &nbsp;//&nbsp; biv.xyz</p>
-      <h1>vibe coding and building websites with
+      <h1>building websites with
         <span class="marker">
           <span class="gold">AI</span>
           <svg viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
@@ -160,10 +176,35 @@
 <section>
   <div class="wrap">
     <p class="lede reveal">i build the things<br>i write about it.</p>
+    <p class="prose reveal">mostly <b>claude</b> and <b>chatgpt</b>, google ai studio when i'm feeling brave.</p>
     <div class="built">
-      <div class="card" style="--i:0"><span class="tag">wp plugin</span><h3>WooGEO</h3><p>makes woocommerce stores legible to AI.</p></div>
-      <div class="card" style="--i:1"><span class="tag">tool</span><h3>SwipeMap</h3><p>tinder for url cleanup. swipe keep / cut.</p></div>
-      <div class="card" style="--i:2"><span class="tag">build skill</span><h3>GEO Web Build</h3><p>sites that ship AI-ready from the first draft.</p></div>
+      <a class="card" style="--i:0" href="https://woogeo.com">
+        <span class="tag">wp plugin</span><h3>WooGEO</h3><p>makes woocommerce stores legible to AI.</p>
+      </a>
+      <a class="card" style="--i:1" href="https://anchoriq.com/smb-tools/">
+        <span class="tag">free tools</span><h3>Anchor IQ Tools</h3><p>small tools for small businesses. no signup.</p>
+      </a>
+      <div class="card" style="--i:2">
+        <span class="tag">build skill</span><h3>GEO Web Build</h3><p>sites that ship AI-ready from the first draft.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="lede reveal">receipts.</p>
+    <div class="panel reveal" id="ghPanel">
+      <div class="gh-head">
+        <p class="eyebrow">github activity</p>
+        <a class="txt" href="https://github.com/bivxyz" style="font-family:var(--mono); font-size:12px">@bivxyz &rarr;</a>
+      </div>
+      <img class="gh-chart" id="ghChart"
+           src="https://ghchart.rshah.org/f2b441/bivxyz"
+           alt="Nicholas Bivens GitHub contribution graph" loading="lazy">
+      <ul class="gh-list" id="ghList">
+        <li><span class="gh-msg">loading commits...</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -171,10 +212,13 @@
 <section>
   <div class="wrap">
     <p class="lede reveal">if you care to follow me...</p>
-    <div class="sub-card reveal">
+    <div class="panel reveal">
       <p class="prose" style="max-width:40ch">~once a week. a few hundred smart people already read it. you should too.</p>
       <form class="sub-form" id="subForm" action="{{BREVO_FORM_ACTION_URL}}" method="POST">
         <input type="email" name="EMAIL" required autocomplete="email" placeholder="you@email.com" aria-label="Email address">
+        <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="email_address_check" value="">
+        <input type="hidden" name="locale" value="en">
         <button type="submit">subscribe &rarr;</button>
       </form>
       <p class="sub-ok" id="subOk" role="status" aria-live="polite" hidden>you're in. (check your inbox.)</p>
@@ -186,14 +230,16 @@
 <footer>
   <div class="wrap">
     <p class="sig">- biv</p>
-    <p class="fine">vibe coded. and yes... it's optimized for AI search - view source, check the schema. updated <time datetime="2026-06-18">june 2026</time>.</p>
+    <p class="fine">vibe coded. and yes... it's optimized for AI search - view source, check the schema. updated <time datetime="2026-07-23">july 2026</time>.</p>
   </div>
 </footer>
 
 <script>
+  /* email capture */
   document.getElementById('subForm').addEventListener('submit', function(e){
     var form = e.target, email = form.EMAIL.value.trim();
     if(!email) return;
+    if(form.company.value) return; /* honeypot tripped, silently drop */
     e.preventDefault();
     fetch(form.action, {method:'POST', mode:'no-cors', body:new FormData(form)})
       .finally(function(){
@@ -202,6 +248,43 @@
       });
   });
 
+  /* github contribution chart - hide if third-party service dies */
+  (function(){
+    var img = document.getElementById('ghChart');
+    img.addEventListener('error', function(){ img.hidden = true; });
+  })();
+
+  /* github recent pushes */
+  (function(){
+    var el = document.getElementById('ghList');
+    fetch('https://api.github.com/users/bivxyz/events/public?per_page=30')
+      .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+      .then(function(events){
+        var rows = events
+          .filter(function(e){ return e.type === 'PushEvent'; })
+          .slice(0, 6)
+          .map(function(e){
+            var repo = e.repo.name.split('/')[1];
+            var msg = (e.payload.commits && e.payload.commits[0])
+              ? e.payload.commits[0].message.split('\n')[0] : 'push';
+            if (msg.length > 52) msg = msg.slice(0, 52) + '...';
+            var d = new Date(e.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+            return '<li><a class="gh-repo" href="https://github.com/' + e.repo.name + '">' +
+                   esc(repo) + '</a><span class="gh-msg">' + esc(msg) +
+                   '</span><span class="gh-date">' + d + '</span></li>';
+          });
+        el.innerHTML = rows.length ? rows.join('') : '<li><span class="gh-msg">quiet week.</span></li>';
+      })
+      .catch(function(){ el.hidden = true; });
+
+    function esc(s){
+      return String(s).replace(/[&<>"']/g, function(c){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+      });
+    }
+  })();
+
+  /* scroll reveals */
   (function(){
     var els = document.querySelectorAll('.reveal, .built');
     if(!('IntersectionObserver' in window)){
