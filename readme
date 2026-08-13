@@ -1,0 +1,60 @@
+# Nicholas Bivens
+
+**SEO · GEO · AEO** - AI search & web operations
+Irvine, CA · [biv.xyz](https://biv.xyz) · nicholasjbivens@gmail.com
+
+I follow search wherever it goes.
+
+---
+
+Started with AdSense publishers, back when one good page was a business. Watched paid units take the fold and Google keep the click. AI reset the surface...being the source the answer is built from matters again.
+
+Ten years following that shift:
+
+| year | surface | what mattered |
+|------|---------|---------------|
+| 2015 | publishers | adsense, long-tail, multivariate testing |
+| 2018 | local | map pack, multi-location visibility |
+| 2023 | ecommerce | catalog SEO, revenue attribution |
+| 2026 | ai search | being the source, not the result |
+
+```mermaid
+xychart-beta
+    title "organic opportunity, as i've lived it"
+    x-axis [2015, 2018, 2021, 2023, 2026]
+    y-axis "surface leverage" 0 --> 100
+    line [22, 38, 52, 70, 96]
+```
+
+---
+
+## What I actually do
+
+Sole owner of organic search for a 17K-page ecommerce catalog. No paid, no social...SEO end to end.
+
+- **Technical** ... crawl audits, indexation fixes, redirect mapping, site architecture, internal linking. Cut indexed pages 17K → 15K while holding organic impressions flat.
+- **Structured data** ... schema.org deployed across a full product catalog for rich results, Shopping, and AI answer eligibility.
+- **AI search** ... prompt tracking, AI Overview presence monitoring, LLM citation share of voice. Built the measurement layer from scratch because nothing off-the-shelf did it.
+- **Build** ... I ship the front-end changes myself instead of filing a ticket and waiting.
+
+## Things I've shipped
+
+| project | what it is |
+|---------|-----------|
+| [**LabelsPrint**](https://labelsprint.app) | free browser label maker. no signup, no account, no upsell. GEO-native from the first commit. |
+| **Article XP** | WordPress plugin that adds GEO-relevant context to posts automatically. |
+| **Anchor IQ** | small free tools for small businesses. |
+
+## Stack
+
+`HTML` `CSS` `JavaScript` `React` `Vite` `Node` `Python` `WordPress` `dotCMS` `Cloudflare Pages`
+
+`GA4` `Search Console` `BrightEdge` `Ahrefs` `OnCrawl` `Screaming Frog` `Dynamic Yield`
+
+## Writing
+
+I write about the gap between SEO and GEO...what changes, what doesn't, and what people are getting wrong about both. → [biv.xyz](https://biv.xyz)
+
+---
+
+<sub>idea → shipped → written up</sub>
