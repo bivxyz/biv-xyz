@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're in | biv.xyz</title>
+<meta name="robots" content="noindex, follow">
+
+<link rel="icon" type="image/jpeg" href="/biv.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0c0c0d; --surface:#161617; --ink:#f4f2ec; --muted:#9a9a92;
+    --line:#2a2a2c; --gold:#f2b441;
+    --hand:"Caveat", cursive;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+    --body:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{background:var(--bg); color:var(--ink); font-family:var(--body); line-height:1.7; -webkit-font-smoothing:antialiased;
+       min-height:100vh; display:flex; flex-direction:column; justify-content:center}
+  a{color:inherit; text-decoration:none}
+  ::selection{background:var(--gold); color:#000}
+
+  .wrap{max-width:860px; margin:0 auto; padding:0 28px; width:100%}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+  .lede{font-family:var(--hand); font-weight:600; font-size:clamp(34px,6vw,54px); line-height:1.05; margin:14px 0 18px}
+  .lede .gold{color:var(--gold)}
+  .prose{font-size:18px; max-width:46ch; color:#cfcdc6}
+  .panel{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:34px 32px 36px}
+  .fine{font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:26px}
+  a.txt{color:var(--gold); border-bottom:1px solid transparent; transition:border-color .2s}
+  a.txt:hover{border-color:var(--gold)}
+  .sig{font-family:var(--hand); font-weight:600; font-size:30px; margin-top:26px}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:3px}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <div class="panel">
+    <p class="eyebrow">nicholas bivens &nbsp;//&nbsp; biv.xyz</p>
+    <h1 class="lede">confirmed. <span class="gold">you're in.</span></h1>
+    <p class="prose">~once a week. build logs, what shipped, what broke. nothing else, and one click gets you out whenever you want.</p>
+    <p class="sig">- biv</p>
+    <p class="fine"><a class="txt" href="/">&larr; back to biv.xyz</a></p>
+  </div>
+</main>
+
+</body>
+</html>
