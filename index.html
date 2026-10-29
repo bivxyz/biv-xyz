@@ -28,7 +28,7 @@
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   "dateCreated": "2026-06-18",
-  "dateModified": "2026-10-21",
+  "dateModified": "2026-10-28",
   "mainEntity": {
     "@type": "Person",
     "@id": "https://biv.xyz/#nicholas-bivens",
@@ -53,19 +53,81 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<script>
+  /* Resolve before CSS paints. A visitor's explicit choice wins over the device. */
+  (function(){
+    var root=document.documentElement, key='biv.theme.v1', choice=null;
+    var device=window.matchMedia('(prefers-color-scheme: dark)');
+    try{
+      var saved=JSON.parse(localStorage.getItem(key));
+      if(saved==='light'||saved==='dark') choice=saved;
+    }catch(e){ /* choice stays in memory when storage is unavailable */ }
+    function apply(){
+      var dark=(choice||(device.matches?'dark':'light'))==='dark';
+      root.dataset.theme=dark?'dark':'light';
+      var button=document.getElementById('theme-toggle');
+      if(button) button.setAttribute('aria-pressed',String(dark));
+    }
+    var fadeTimer;
+    function change(){
+      if(root.classList.contains('theme-ready')){
+        root.classList.add('theme-switch');
+        clearTimeout(fadeTimer);
+        fadeTimer=setTimeout(function(){root.classList.remove('theme-switch')},220);
+      }
+      apply();
+    }
+    root.classList.add('js');
+    apply();
+    document.addEventListener('DOMContentLoaded',function(){
+      var button=document.getElementById('theme-toggle');
+      apply();
+      button.addEventListener('click',function(){
+        choice=root.dataset.theme==='dark'?'light':'dark';
+        try{localStorage.setItem(key,JSON.stringify(choice))}catch(e){}
+        change();
+      });
+      window.addEventListener('storage',function(event){
+        if(event.key!==key&&event.key!==null) return;
+        try{var value=JSON.parse(event.newValue);choice=value==='light'||value==='dark'?value:null}catch(e){choice=null}
+        change();
+      });
+    });
+    device.addEventListener('change',function(){if(!choice) change()});
+    window.addEventListener('load',function(){requestAnimationFrame(function(){root.classList.add('theme-ready')})});
+  })();
+</script>
 <style>
   :root{
-    --bg:#0c0c0d; --surface:#161617; --ink:#f4f2ec; --muted:#9a9a92;
-    --line:#2a2a2c; --gold:#f2b441;
+    color-scheme:light;
+    --bg:#F7F4EC; --surface:#FFFDF8; --ink:#1F2119; --prose:#34362D;
+    --muted:#5C5E54; --faint:#6B6C63; --line:#E3DDCF; --hover-line:#8F8A7C;
+    --gold:#F2B441; --gold-ink:#8A5C00; --on-gold:#000; --err:#B23C1C;
+    --field:#8F8A7C; --focus:#8A5C00; --dot:#D4CCB8;
+    --gold-glow:rgba(242,180,65,.20); --transparent:transparent;
     --hand:"Caveat", cursive;
     --mono:"JetBrains Mono", ui-monospace, monospace;
     --body:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#0c0c0d; --surface:#161617; --ink:#f4f2ec; --prose:#cfcdc6;
+    --muted:#9a9a92; --faint:#8A8A82; --line:#2a2a2c; --hover-line:#3a3a3d;
+    --gold:#f2b441; --gold-ink:#f2b441; --on-gold:#000; --err:#e0714f;
+    --field:#6e6e68; --focus:#f2b441; --dot:transparent;
+  }
   *{box-sizing:border-box; margin:0; padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg); color:var(--ink); font-family:var(--body); line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+  html{scroll-behavior:smooth; background:var(--bg)}
+  body{background-color:var(--bg); background-image:radial-gradient(var(--dot) 1px,var(--transparent) 1.4px); background-size:22px 22px; background-attachment:fixed; color:var(--ink); font-family:var(--body); line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+  :root[data-theme="dark"] body{background-image:none}
   a{color:inherit; text-decoration:none}
-  ::selection{background:var(--gold); color:#000}
+  ::selection{background:var(--gold); color:var(--on-gold)}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0}
+  .skip-link{position:fixed; top:12px; left:12px; z-index:20; padding:10px 16px; background:var(--surface); color:var(--ink); transform:translateY(-200%)}
+  .skip-link:focus{transform:none}
+  #theme-toggle{display:none; position:fixed; top:12px; right:16px; z-index:10; min-width:44px; min-height:44px; padding:10px 12px; border:1px solid var(--field); border-radius:6px; background:var(--surface); color:var(--muted); font:400 12px var(--mono); cursor:pointer}
+  .js #theme-toggle{display:block}
+  html.theme-ready.theme-switch, html.theme-ready.theme-switch *, html.theme-ready.theme-switch *::before, html.theme-ready.theme-switch *::after{transition:background-color .2s,color .2s}
 
   .wrap{max-width:860px; margin:0 auto; padding:0 28px}
   .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
@@ -74,15 +136,16 @@
   .hero{display:grid; gap:40px; align-items:center}
   @media(min-width:740px){.hero{grid-template-columns:minmax(0,1fr) minmax(200px,280px)}}
   .hero h1{font-family:var(--hand); font-weight:700; font-size:clamp(48px,9vw,96px); line-height:.95; letter-spacing:.5px; max-width:12ch; margin-top:30px}
-  .hero h1 .gold{color:var(--gold)}
+  .hero h1 .gold{color:var(--gold-ink)}
   .hero-sub{margin-top:26px; max-width:44ch; font-size:18px; color:var(--muted)}
   .hero-sub b{color:var(--ink); font-weight:500}
 
   .hero-portrait{position:relative; margin:0; justify-self:center; width:100%; max-width:280px}
   .hero-portrait::before{content:""; position:absolute; inset:6% 8% 2%; z-index:0;
-    background:radial-gradient(58% 52% at 50% 40%, rgba(242,180,65,.20), transparent 72%); filter:blur(6px)}
+    background:radial-gradient(58% 52% at 50% 40%, var(--gold-glow), var(--transparent) 72%); filter:blur(6px)}
   .hero-portrait img{position:relative; z-index:1; display:block; width:100%; height:auto;
-    filter:invert(1); mix-blend-mode:screen; opacity:.96}
+    filter:none; mix-blend-mode:multiply; opacity:.96}
+  :root[data-theme="dark"] .hero-portrait img{filter:invert(1); mix-blend-mode:screen}
   @media(max-width:739px){.hero-portrait{max-width:200px; order:-1; margin-bottom:4px}}
 
   .marker{position:relative; display:inline-block; padding:0 .12em}
@@ -96,27 +159,27 @@
 
   section{padding:9vh 0; border-top:1px solid var(--line)}
   .lede{font-family:var(--hand); font-weight:600; font-size:clamp(30px,5vw,46px); line-height:1.1; margin-bottom:20px}
-  .prose{font-size:18px; max-width:52ch; color:#cfcdc6}
+  .prose{font-size:18px; max-width:52ch; color:var(--prose)}
   .prose b{color:var(--ink); font-weight:500}
 
   .built{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:30px}
   .card{display:block; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px 22px; transition:border-color .2s, transform .2s}
-  .card:hover{border-color:#3a3a3d; transform:translateY(-2px)}
-  .card .tag{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold)}
-  .card h3{font-family:var(--hand); font-weight:700; font-size:27px; margin:6px 0 6px; line-height:1}
+  .card:hover{border-color:var(--hover-line); transform:translateY(-2px)}
+  .card .tag{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-ink)}
+  .card h2{font-family:var(--hand); font-weight:700; font-size:27px; margin:6px 0 6px; line-height:1}
   .card p{font-size:14px; color:var(--muted); line-height:1.5}
 
   .panel{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:30px 30px 32px; margin-top:6px}
   .sub-form{display:flex; gap:10px; margin-top:20px; flex-wrap:wrap}
-  .sub-form input{flex:1; min-width:200px; background:var(--bg); border:1px solid var(--line); color:var(--ink); font-family:var(--mono); font-size:15px; padding:14px 16px; border-radius:10px}
-  .sub-form input::placeholder{color:#5f5f59}
-  .sub-form input:focus{outline:none; border-color:var(--gold)}
-  .sub-form button{background:var(--gold); color:#000; border:none; font-family:var(--mono); font-weight:500; font-size:15px; padding:14px 24px; border-radius:10px; cursor:pointer; transition:filter .2s}
+  .sub-form input{flex:1; min-width:200px; background:var(--bg); border:1px solid var(--field); color:var(--ink); font-family:var(--mono); font-size:15px; padding:14px 16px; border-radius:10px}
+  .sub-form input::placeholder{color:var(--faint)}
+  .sub-form input:focus{outline:2px solid var(--focus); outline-offset:3px; border-color:var(--focus)}
+  .sub-form button{background:var(--gold); color:var(--on-gold); border:none; font-family:var(--mono); font-weight:500; font-size:15px; padding:14px 24px; border-radius:10px; cursor:pointer; transition:filter .2s}
   .sub-form button:hover{filter:brightness(1.08)}
   .sub-form button:disabled{opacity:.55; cursor:default; filter:none}
   .fineprint{font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:14px}
-  .sub-err{font-family:var(--mono); font-size:13px; color:#e0714f; margin-top:14px}
-  .sub-ok{font-family:var(--hand); font-weight:600; font-size:30px; color:var(--gold); margin-top:18px}
+  .sub-err{font-family:var(--mono); font-size:13px; color:var(--err); margin-top:14px}
+  .sub-ok{font-family:var(--hand); font-weight:600; font-size:30px; color:var(--gold-ink); margin-top:18px}
   .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
 
   .gh-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap}
@@ -124,18 +187,18 @@
   .gh-list{list-style:none; margin-top:22px; font-family:var(--mono); font-size:13px; line-height:1.9}
   .gh-list li{display:flex; gap:10px; flex-wrap:wrap; align-items:baseline; padding:5px 0; border-top:1px solid var(--line)}
   .gh-list li:first-child{border-top:none}
-  .gh-repo{color:var(--gold)}
+  .gh-repo{color:var(--gold-ink)}
   .gh-msg{color:var(--muted); flex:1; min-width:160px}
-  .gh-date{color:#5f5f59; font-size:12px}
+  .gh-date{color:var(--faint); font-size:12px}
 
   footer{padding:8vh 0 11vh; border-top:1px solid var(--line)}
   footer .sig{font-family:var(--hand); font-weight:600; font-size:34px}
   footer .fine{font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:12px; max-width:46ch; line-height:1.6}
-  footer time{color:#7c7c74}
-  a.txt{color:var(--gold); border-bottom:1px solid transparent; transition:border-color .2s}
-  a.txt:hover{border-color:var(--gold)}
+  footer time{color:var(--faint)}
+  a.txt{color:var(--gold-ink); border-bottom:1px solid var(--transparent); transition:border-color .2s}
+  a.txt:hover{border-color:var(--gold-ink)}
 
-  :focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:3px}
+  :focus-visible{outline:2px solid var(--focus); outline-offset:3px; border-radius:3px}
 
   .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1)}
   .reveal.in{opacity:1; transform:none}
@@ -145,10 +208,14 @@
 
   @media (max-width:560px){header{padding:14vh 0 9vh}.built{grid-template-columns:1fr}}
   @media (prefers-reduced-motion:reduce){.marker svg path,.scribble svg path{animation:none; stroke-dashoffset:0}html{scroll-behavior:auto}.reveal,.built .card{opacity:1; transform:none; transition:none}}
+  @media (prefers-reduced-motion:reduce){html.theme-ready.theme-switch,html.theme-ready.theme-switch *,html.theme-ready.theme-switch *::before,html.theme-ready.theme-switch *::after{transition:none!important}}
+  html:not(.js) .reveal,html:not(.js) .built .card{opacity:1; transform:none}
 </style>
 </head>
 <body>
-
+<a class="skip-link" href="#main-content">skip to content</a>
+<button id="theme-toggle" type="button" aria-pressed="false">dark mode</button>
+<main id="main-content" tabindex="-1">
 <header>
   <div class="wrap hero">
     <div class="hero-text">
@@ -182,13 +249,13 @@
     <p class="prose reveal">mostly <b>claude</b> and <b>chatgpt</b>, google ai studio when i'm feeling brave.</p>
     <div class="built">
       <a class="card" style="--i:0" href="https://woogeo.com">
-        <span class="tag">wp plugin</span><h3>WooGEO</h3><p>score your woocommerce site for AI search</p>
+        <span class="tag">wp plugin</span><h2>WooGEO</h2><p>score your woocommerce site for AI search</p>
       </a>
       <a class="card" style="--i:1" href="https://anchoriq.com/smb-tools/">
-        <span class="tag">free tools</span><h3>Anchor IQ Tools</h3><p>small tools for small businesses. no signup.</p>
+        <span class="tag">free tools</span><h2>Anchor IQ Tools</h2><p>small tools for small businesses. no signup.</p>
       </a>
      <a class="card" style="--i:1" href="https://labelsprint.app">
-        <span class="tag">webapp</span><h3>LabelsPrint</h3><p>free label maker for printing Avery-compatible sheets.</p>
+        <span class="tag">webapp</span><h2>LabelsPrint</h2><p>free label maker for printing Avery-compatible sheets.</p>
       </a>
     </div>
   </div>
@@ -204,7 +271,7 @@
       </div>
       <img class="gh-chart" id="ghChart"
            src="https://ghchart.rshah.org/f2b441/bivxyz"
-           alt="Nicholas Bivens GitHub contribution graph" loading="lazy">
+           alt="" loading="lazy">
       <ul class="gh-list" id="ghList">
         <li><span class="gh-msg">loading commits...</span></li>
       </ul>
@@ -218,7 +285,8 @@
     <div class="panel reveal">
       <p class="prose" style="max-width:40ch">~once a week. a few hundred smart people already read it. you should too.</p>
       <form class="sub-form" id="subForm" action="/api/subscribe" method="POST">
-        <input type="email" name="EMAIL" required autocomplete="email" placeholder="you@email.com" aria-label="Email address">
+        <label class="sr-only" for="email">Email address</label>
+        <input id="email" type="email" name="EMAIL" required autocomplete="email" placeholder="you@email.com">
         <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit">subscribe &rarr;</button>
       </form>
@@ -229,11 +297,12 @@
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap">
     <p class="sig">- biv</p>
     <p class="fine">say hi... <a class="txt" href="mailto:me@biv.xyz">me@biv.xyz</a></p>
-    <p class="fine">vibe coded. and yes... it's optimized for AI search - view source, check the schema. updated <time datetime="2026-10-21">october 2026</time>.</p>
+    <p class="fine">vibe coded. and yes... it's optimized for AI search - view source, check the schema. updated <time datetime="2026-10-28">october 2026</time>.</p>
   </div>
 </footer>
 
