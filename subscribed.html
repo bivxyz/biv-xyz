@@ -12,36 +12,100 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<script>
+  /* Resolve before CSS paints. A visitor's explicit choice wins over the device. */
+  (function(){
+    var root=document.documentElement, key='biv.theme.v1', choice=null;
+    var device=window.matchMedia('(prefers-color-scheme: dark)');
+    try{
+      var saved=JSON.parse(localStorage.getItem(key));
+      if(saved==='light'||saved==='dark') choice=saved;
+    }catch(e){ /* choice stays in memory when storage is unavailable */ }
+    function apply(){
+      var dark=(choice||(device.matches?'dark':'light'))==='dark';
+      root.dataset.theme=dark?'dark':'light';
+      var button=document.getElementById('theme-toggle');
+      if(button) button.setAttribute('aria-pressed',String(dark));
+    }
+    var fadeTimer;
+    function change(){
+      if(root.classList.contains('theme-ready')){
+        root.classList.add('theme-switch');
+        clearTimeout(fadeTimer);
+        fadeTimer=setTimeout(function(){root.classList.remove('theme-switch')},220);
+      }
+      apply();
+    }
+    root.classList.add('js');
+    apply();
+    document.addEventListener('DOMContentLoaded',function(){
+      var button=document.getElementById('theme-toggle');
+      apply();
+      button.addEventListener('click',function(){
+        choice=root.dataset.theme==='dark'?'light':'dark';
+        try{localStorage.setItem(key,JSON.stringify(choice))}catch(e){}
+        change();
+      });
+      window.addEventListener('storage',function(event){
+        if(event.key!==key&&event.key!==null) return;
+        try{var value=JSON.parse(event.newValue);choice=value==='light'||value==='dark'?value:null}catch(e){choice=null}
+        change();
+      });
+    });
+    device.addEventListener('change',function(){if(!choice) change()});
+    window.addEventListener('load',function(){requestAnimationFrame(function(){root.classList.add('theme-ready')})});
+  })();
+</script>
 <style>
   :root{
-    --bg:#0c0c0d; --surface:#161617; --ink:#f4f2ec; --muted:#9a9a92;
-    --line:#2a2a2c; --gold:#f2b441;
+    color-scheme:light;
+    --bg:#F7F4EC; --surface:#FFFDF8; --ink:#1F2119; --prose:#34362D;
+    --muted:#5C5E54; --faint:#6B6C63; --line:#E3DDCF; --hover-line:#8F8A7C;
+    --gold:#F2B441; --gold-ink:#8A5C00; --on-gold:#000; --err:#B23C1C;
+    --field:#8F8A7C; --focus:#8A5C00; --dot:#D4CCB8;
+    --gold-glow:rgba(242,180,65,.20); --transparent:transparent;
     --hand:"Caveat", cursive;
     --mono:"JetBrains Mono", ui-monospace, monospace;
     --body:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#0c0c0d; --surface:#161617; --ink:#f4f2ec; --prose:#cfcdc6;
+    --muted:#9a9a92; --faint:#8A8A82; --line:#2a2a2c; --hover-line:#3a3a3d;
+    --gold:#f2b441; --gold-ink:#f2b441; --on-gold:#000; --err:#e0714f;
+    --field:#6e6e68; --focus:#f2b441; --dot:transparent;
+  }
   *{box-sizing:border-box; margin:0; padding:0}
-  body{background:var(--bg); color:var(--ink); font-family:var(--body); line-height:1.7; -webkit-font-smoothing:antialiased;
+  html{background:var(--bg)}
+  body{background-color:var(--bg); background-image:radial-gradient(var(--dot) 1px,var(--transparent) 1.4px); background-size:22px 22px; background-attachment:fixed; color:var(--ink); font-family:var(--body); line-height:1.7; -webkit-font-smoothing:antialiased;
        min-height:100vh; display:flex; flex-direction:column; justify-content:center}
+  :root[data-theme="dark"] body{background-image:none}
   a{color:inherit; text-decoration:none}
-  ::selection{background:var(--gold); color:#000}
+  ::selection{background:var(--gold); color:var(--on-gold)}
+  .skip-link{position:fixed; top:12px; left:12px; z-index:20; padding:10px 16px; background:var(--surface); color:var(--ink); transform:translateY(-200%)}
+  .skip-link:focus{transform:none}
+  #theme-toggle{display:none; position:fixed; top:12px; right:16px; z-index:10; min-width:44px; min-height:44px; padding:10px 12px; border:1px solid var(--field); border-radius:6px; background:var(--surface); color:var(--muted); font:400 12px var(--mono); cursor:pointer}
+  .js #theme-toggle{display:block}
+  html.theme-ready.theme-switch, html.theme-ready.theme-switch *, html.theme-ready.theme-switch *::before, html.theme-ready.theme-switch *::after{transition:background-color .2s,color .2s}
 
   .wrap{max-width:860px; margin:0 auto; padding:0 28px; width:100%}
   .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
   .lede{font-family:var(--hand); font-weight:600; font-size:clamp(34px,6vw,54px); line-height:1.05; margin:14px 0 18px}
-  .lede .gold{color:var(--gold)}
-  .prose{font-size:18px; max-width:46ch; color:#cfcdc6}
+  .lede .gold{color:var(--gold-ink)}
+  .prose{font-size:18px; max-width:46ch; color:var(--prose)}
   .panel{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:34px 32px 36px}
   .fine{font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:26px}
-  a.txt{color:var(--gold); border-bottom:1px solid transparent; transition:border-color .2s}
-  a.txt:hover{border-color:var(--gold)}
+  a.txt{color:var(--gold-ink); border-bottom:1px solid var(--transparent); transition:border-color .2s}
+  a.txt:hover{border-color:var(--gold-ink)}
   .sig{font-family:var(--hand); font-weight:600; font-size:30px; margin-top:26px}
-  :focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:3px}
+  :focus-visible{outline:2px solid var(--focus); outline-offset:3px; border-radius:3px}
+  @media (prefers-reduced-motion:reduce){html.theme-ready.theme-switch,html.theme-ready.theme-switch *,html.theme-ready.theme-switch *::before,html.theme-ready.theme-switch *::after{transition:none!important}}
 </style>
 </head>
 <body>
-
-<main class="wrap">
+<a class="skip-link" href="#main-content">skip to content</a>
+<button id="theme-toggle" type="button" aria-pressed="false">dark mode</button>
+<main class="wrap" id="main-content" tabindex="-1">
   <div class="panel">
     <p class="eyebrow">nicholas bivens &nbsp;//&nbsp; biv.xyz</p>
     <h1 class="lede">confirmed. <span class="gold">you're in.</span></h1>
