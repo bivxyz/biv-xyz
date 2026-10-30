@@ -1,0 +1,11 @@
+/ai-agency-os
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-4fDxtncMvemkXYsMtxfVYJHnTEG0JUVSAZXcUNc9KIk=' 'sha256-+ZLOkq7Or62XJp5bBjtEiLPT4xEWNMevH7JMLOipaF0=' 'sha256-sR71NaI8CKfqBBD9EUx3D4MPPs305UNgAqBxAWcazB4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; form-action 'self' https://checkout.stripe.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+
+/ai-agency-os/thanks
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-+ZLOkq7Or62XJp5bBjtEiLPT4xEWNMevH7JMLOipaF0=' 'sha256-8jOws4GX5IMzKnxwg/LznPdExKzg43+LXL0OkhTYqac='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; form-action 'self' https://checkout.stripe.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'
+  Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: private, no-store
