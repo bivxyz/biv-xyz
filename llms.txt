@@ -1,0 +1,9 @@
+# biv.xyz
+
+> Personal site of Nicholas Bivens (biv), a solo builder who ships websites and small tools with AI and writes build logs in public. Contact: me@biv.xyz
+
+## Products
+- [AI Agency OS](https://biv.xyz/ai-agency-os): The bot team, SOPs and 2-week launch workflow behind a real SEO/AEO web agency. 8 AI agent roles (Chief of Staff, SEO/AEO, Copy, Design, Site Ops, Developer, Dev Ops, R&D); a human approves anything that goes live or gets sent. One-time purchase via Stripe: The Playbook $79 (PDF + Markdown SOPs, workflow, checklists), The Team $199 (adds 8 agent templates for Grok Bot and an install guide), Done for you $1,999 (personal setup in your accounts). 14-day money-back guarantee.
+
+## About
+- [Home](https://biv.xyz/): Who biv is, current builds, GitHub activity and the newsletter.

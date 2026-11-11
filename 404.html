@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found | biv.xyz</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/jpeg" href="/biv.jpg">
+<script>
+  /* Same saved choice as the rest of biv.xyz. No toggle on this page. */
+  (function(){
+    var root=document.documentElement, key='biv.theme.v1', choice=null;
+    var device=window.matchMedia('(prefers-color-scheme: dark)');
+    try{
+      var saved=JSON.parse(localStorage.getItem(key));
+      if(saved==='light'||saved==='dark') choice=saved;
+    }catch(e){}
+    var dark=(choice||(device.matches?'dark':'light'))==='dark';
+    root.dataset.theme=dark?'dark':'light';
+  })();
+</script>
+<style>
+@font-face{font-family:"Caveat"; font-style:normal; font-weight:500 700; font-display:swap; src:url("/fonts/caveat-latin.woff2") format("woff2"); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"JetBrains Mono"; font-style:normal; font-weight:400 700; font-display:swap; src:url("/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  color-scheme:light;
+  --bg:#F7F4EC; --ink:#1F2119; --prose:#34362D; --muted:#5C5E54;
+  --gold-ink:#8A5C00; --dot:#D4CCB8;
+  --hand:"Caveat", cursive;
+  --mono:"JetBrains Mono", ui-monospace, monospace;
+  --body:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0c0c0d; --ink:#f4f2ec; --prose:#cfcdc6; --muted:#9a9a92;
+  --gold-ink:#f2b441; --dot:transparent;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{min-height:100vh; display:flex; align-items:center; background-color:var(--bg); background-image:radial-gradient(var(--dot) 1px, transparent 1.4px); background-size:22px 22px; color:var(--ink); font-family:var(--body); line-height:1.7; -webkit-font-smoothing:antialiased}
+:root[data-theme="dark"] body{background-image:none}
+.wrap{max-width:860px; margin:0 auto; padding:12vh 28px}
+.eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.eyebrow a{color:inherit; text-decoration:none}
+h1{font-family:var(--hand); font-weight:700; font-size:clamp(48px,9vw,84px); line-height:.95; margin:18px 0 16px}
+p{font-size:18px; max-width:42ch; color:var(--prose)}
+.links{margin-top:22px; font-family:var(--mono); font-size:14px}
+.links a{color:var(--gold-ink); text-decoration:none; border-bottom:1px solid transparent; display:inline-block; min-height:44px; line-height:44px}
+.links a:hover{border-bottom-color:var(--gold-ink)}
+:focus-visible{outline:2px solid var(--gold-ink); outline-offset:3px}
+</style>
+</head>
+<body>
+<main class="wrap">
+<p class="eyebrow"><a href="https://biv.xyz/">biv.xyz</a></p>
+<h1>page not found.</h1>
+<p>That link doesn't go anywhere on this site.</p>
+<p class="links"><a href="https://biv.xyz/">Back to biv.xyz</a></p>
+<p class="links"><a href="https://biv.xyz/ai-agency-os">AI Agency OS</a></p>
+</main>
+</body>
+</html>
