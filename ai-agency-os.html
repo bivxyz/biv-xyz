@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agency OS: 8 AI Agents, One Human in Charge | biv.xyz</title>
+<meta name="description" content="The AI agency OS behind my SEO/AEO web agency: 8 AI agents, every SOP and a 2-week launch workflow. A human approves everything. Eight roles. One system.">
+<link rel="canonical" href="https://biv.xyz/ai-agency-os">
+<meta property="og:title" content="My web agency runs on 8 AI agents. I still press send.">
+<meta property="og:description" content="The bot team, SOPs and 2-week launch workflow behind a real SEO/AEO web agency. A human approves everything. Eight roles. One system.">
+<meta property="og:url" content="https://biv.xyz/ai-agency-os">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://biv.xyz/biv.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/jpeg" href="/biv.jpg">
+<!--
+AI Agency OS sales page, reconstructed from the supplied v6 build pack.
+Hosted one-time checkout and payment-verified download fulfillment.
+Checkout contract: POST /api/checkout with tier=playbook|team|dfy.
+Keep Stripe keys, buyer files and bot template links out of public HTML.
+See LANDING-PAGE.md for the remaining integration work.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://biv.xyz/ai-agency-os#webpage",
+      "url": "https://biv.xyz/ai-agency-os",
+      "name": "AI Agency OS: 8 AI Agents, One Human in Charge",
+      "description": "The AI agency OS behind my SEO/AEO web agency: 8 AI agents, every SOP and a 2-week launch workflow. A human approves everything. Eight roles. One system.",
+      "dateCreated": "2026-10-24",
+      "dateModified": "2026-10-29",
+      "author": {
+        "@id": "https://biv.xyz/#nicholas-bivens"
+      },
+      "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://biv.xyz/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://biv.xyz/ai-agency-os#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an AI agency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A business that does client work with AI agents doing most of the drafting and checking. Mine is a web agency: 8 agents audit, write, design and build, and I approve everything before it ships."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you build an AI agency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Write an SOP for every repeat task, give each task to an agent, and keep a human approval step before anything goes live. That's the setup this page packages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this for new or existing agencies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both. It's built from a real, working small agency."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will this get me clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It runs the work, not your sales. Finding clients is still on you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do the AI agents act on their own?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. They draft and check. I approve anything that goes live or gets sent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do I need to run it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An AI assistant plan and access to your own tools: email, Drive, WordPress and hosting. The Team's eight agent templates import into Grok Bot. Its install guide covers connecting your hosting provider, a code host for the Developer (optional) and the project tool you already use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast do I get it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You’ll get your download immediately after confirmed payment, with the same link sent by email. Done for you also includes a kickoff call to arrange your setup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are the files delivered?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As a download. The Playbook is a ZIP with a formatted PDF plus every SOP, workflow and checklist as editable Markdown files. The Team adds the install guide and links to the eight agent templates. Done for you includes the Team download."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a refund?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. There's a 14-day money-back guarantee from the date of purchase. Email me@biv.xyz and I'll refund you through Stripe."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script>
+  /* Resolve before CSS paints. A visitor's explicit choice wins over the device. */
+  (function(){
+    var root=document.documentElement, key='biv.theme.v1', choice=null;
+    var device=window.matchMedia('(prefers-color-scheme: dark)');
+    try{
+      var saved=JSON.parse(localStorage.getItem(key));
+      if(saved==='light'||saved==='dark') choice=saved;
+    }catch(e){ /* choice stays in memory when storage is unavailable */ }
+    function apply(){
+      var dark=(choice||(device.matches?'dark':'light'))==='dark';
+      root.dataset.theme=dark?'dark':'light';
+      var button=document.getElementById('theme-toggle');
+      if(button) button.setAttribute('aria-pressed',String(dark));
+    }
+    var fadeTimer;
+    function change(){
+      if(root.classList.contains('theme-ready')){
+        root.classList.add('theme-switch');
+        clearTimeout(fadeTimer);
+        fadeTimer=setTimeout(function(){root.classList.remove('theme-switch')},220);
+      }
+      apply();
+    }
+    root.classList.add('js');
+    apply();
+    document.addEventListener('DOMContentLoaded',function(){
+      var button=document.getElementById('theme-toggle');
+      apply();
+      button.addEventListener('click',function(){
+        choice=root.dataset.theme==='dark'?'light':'dark';
+        try{localStorage.setItem(key,JSON.stringify(choice))}catch(e){}
+        change();
+      });
+      window.addEventListener('storage',function(event){
+        if(event.key!==key&&event.key!==null) return;
+        try{var value=JSON.parse(event.newValue);choice=value==='light'||value==='dark'?value:null}catch(e){choice=null}
+        change();
+      });
+    });
+    device.addEventListener('change',function(){if(!choice) change()});
+    window.addEventListener('load',function(){requestAnimationFrame(function(){root.classList.add('theme-ready')})});
+  })();
+</script>
+<style>
+/* Shared biv.xyz theme tokens and persisted mode preference. */
+  :root{
+    color-scheme:light;
+    --bg:#F7F4EC; --surface:#FFFDF8; --ink:#1F2119; --prose:#34362D;
+    --muted:#5C5E54; --faint:#6B6C63; --line:#E3DDCF; --hover-line:#8F8A7C;
+    --gold:#F2B441; --gold-ink:#8A5C00; --on-gold:#000; --err:#B23C1C;
+    --field:#8F8A7C; --focus:#8A5C00; --dot:#D4CCB8;
+    --gold-glow:rgba(242,180,65,.20); --transparent:transparent;
+    --hand:"Caveat", cursive;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+    --body:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#0c0c0d; --surface:#161617; --ink:#f4f2ec; --prose:#cfcdc6;
+    --muted:#9a9a92; --faint:#8A8A82; --line:#2a2a2c; --hover-line:#3a3a3d;
+    --gold:#f2b441; --gold-ink:#f2b441; --on-gold:#000; --err:#e0714f;
+    --field:#6e6e68; --focus:#f2b441; --dot:transparent;
+  }
+
+*{box-sizing:border-box; margin:0; padding:0}
+html{scroll-behavior:smooth; background:var(--bg)}
+body{background-color:var(--bg); background-image:radial-gradient(var(--dot) 1px,transparent 1.4px); background-size:22px 22px; background-attachment:fixed; color:var(--ink); font-family:var(--body); line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+a{color:inherit; text-decoration:none}
+::selection{background:var(--gold); color:#000}
+ul,ol{list-style:none}
+.wrap{max-width:860px; margin:0 auto; padding:0 28px}
+.eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.eyebrow a{display:inline-block; min-height:24px; line-height:24px}
+.eyebrow a:hover{color:var(--ink)}
+.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
+/* skip link */
+.skip{position:absolute; left:16px; top:-80px; z-index:10; background:var(--gold); color:#000; font-family:var(--mono); font-size:14px; padding:12px 18px; border-radius:10px}
+.skip:focus{top:16px}
+/* hero: same grid + portrait treatment as index.html */
+header{padding:16vh 0 11vh}
+.hero{display:grid; gap:40px; align-items:center}
+@media(min-width:740px){.hero{grid-template-columns:minmax(0,1fr) minmax(200px,260px)}}
+.hero h1{font-family:var(--hand); font-weight:700; font-size:clamp(46px,7.4vw,80px); line-height:.98; letter-spacing:.5px; max-width:14ch; margin-top:30px}
+.hero h1 .gold{color:var(--gold-ink)}
+.hero h1 .line2{display:block; margin-top:.12em}
+.hero-sub{margin-top:36px; max-width:44ch; font-size:18px; color:var(--muted)}
+.hero-sub b{color:var(--ink); font-weight:500}
+.hero-portrait{position:relative; margin:0; justify-self:center; width:100%; max-width:260px}
+.hero-portrait::before{content:""; position:absolute; inset:6% 8% 2%; z-index:0;
+background:radial-gradient(58% 52% at 50% 40%, rgba(242,180,65,.20), transparent 72%); filter:blur(6px)}
+.hero-portrait img{position:relative; z-index:1; display:block; width:100%; height:auto; filter:none; mix-blend-mode:multiply; opacity:.96}
+@media(max-width:739px){.hero-portrait{max-width:180px; order:-1; margin-bottom:4px}}
+.marker{position:relative; display:inline-block; padding:0 .12em}
+.marker svg{position:absolute; inset:-22% -6% -28%; width:112%; height:150%; overflow:visible; pointer-events:none}
+.marker svg path{fill:none; stroke:var(--ink); stroke-width:3; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; stroke-dasharray:2000; stroke-dashoffset:2000;
+animation:draw 1.3s .35s cubic-bezier(.6,.05,.3,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.scribble{position:relative; white-space:nowrap}
+.scribble svg{position:absolute; left:-4%; right:-4%; bottom:-.32em; width:108%; height:.4em; overflow:visible}
+.scribble svg path{fill:none; stroke:var(--gold); stroke-width:3.5; stroke-linecap:round; vector-effect:non-scaling-stroke; stroke-dasharray:600; stroke-dashoffset:600; animation:draw 1s .9s ease
+forwards}
+/* buttons: same look as .sub-form button on index.html */
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; background:var(--gold); color:#000; border:none; font-family:var(--mono); font-weight:500;
+font-size:15px; padding:12px 24px; border-radius:10px; cursor:pointer; transition:filter .2s}
+.btn:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.55; cursor:default; filter:none}
+.hero .btn{margin-top:34px}
+/* sections */
+section{padding:9vh 0; border-top:1px solid var(--line)}
+.lede{font-family:var(--hand); font-weight:600; font-size:clamp(34px,5vw,48px); line-height:1.1; margin-bottom:20px}
+.lede .gold{color:var(--gold-ink)}
+.prose{font-size:18px; max-width:52ch; color:var(--prose)}
+.prose b{color:var(--ink); font-weight:500}
+.tag{font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-ink)}
+.card{display:block; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px 22px}
+.card h3{font-family:var(--hand); font-weight:700; font-size:28px; margin:6px 0 6px; line-height:1}
+.card p{font-size:15px; color:var(--muted); line-height:1.55}
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:30px 30px 32px; margin-top:6px}
+/* team visual: Kit's team graphic v2.1 (8 roles; Dev Ops = hosting and deploys), all rules scoped under .bt (v6 baseline) */
+.bt{max-width:860px; margin:0 auto; padding:44px 28px 36px; background:var(--bg); color:var(--ink)}
+.bt ul,.bt ol{list-style:none}
+.bt-eyebrow{font-family:var(--mono); font-size:14px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+.bt-title{font-family:var(--hand); font-weight:700; font-size:64px; line-height:1; margin-top:14px}
+.bt-title .g{color:var(--gold-ink)}
+.bt-sub{font-size:18px; color:var(--prose); margin-top:14px; max-width:52ch}
+.bt-sub b{color:var(--ink); font-weight:500}
+.bt-tag{font-family:var(--mono); font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-ink)}
+.bt-card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:18px 20px 18px}
+.bt-card h3{font-family:var(--hand); font-weight:700; font-size:32px; line-height:1; margin:6px 0 10px}
+.bt-card li{font-size:15px; color:var(--prose); line-height:1.45; padding-left:16px; position:relative; margin-top:6px}
+.bt-card li::before{content:""; position:absolute; left:0; top:.62em; width:6px; height:6px; border-radius:50%; background:var(--gold)}
+/* org chart */
+.bt-org{margin-top:34px; display:flex; flex-direction:column; align-items:center}
+.bt-op{width:100%; max-width:440px; border:1.5px dashed var(--gold); background:transparent}
+.bt-op h3 .who{font-family:var(--body); font-size:16px; font-weight:400; color:var(--muted); margin-left:6px}
+.bt-hub{width:100%; max-width:480px; border-color:var(--gold-ink)}
+.bt-hub h3{color:var(--gold-ink)}
+.bt-stem{width:2px; height:26px; background:var(--gold); opacity:.8}
+.bt-team{width:100%; border:1px solid var(--line); border-radius:18px; padding:16px; position:relative}
+.bt-team-h{font-family:var(--mono); font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); text-align:center; margin:2px 0 14px}
+.bt-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+.bt-grid .bt-card{border-top:3px solid var(--gold)}
+.bt-grid .bt-rd{border:1.5px dashed var(--field); border-top:3px dashed var(--field)}
+.bt-grid .bt-rd .bt-tag{color:var(--muted)}
+/* R&D: full-width row under the six specialists, kept visibly apart */
+.bt-grid .bt-rd{grid-column:1 / -1; display:grid; grid-template-columns:190px 1fr; gap:4px 20px; align-items:center; margin-top:4px}
+.bt-grid .bt-rd h3{margin-bottom:0}
+.bt-grid .bt-rd ul li:first-child{margin-top:0}
+/* Developer -> Dev Ops handoff: bracket under the two cards with a label */
+.bt-handoff{grid-column:2 / 4; grid-row:3; position:relative; height:46px; margin-top:-12px}
+.bt-handoff-line{position:absolute; left:calc((100% - 12px) / 4); right:calc((100% - 12px) / 4); top:0; height:22px;
+border:2px solid var(--gold); border-top:none; border-radius:0 0 10px 10px}
+.bt-handoff-line::after{content:""; position:absolute; right:-7px; top:-2px; border:6px solid transparent; border-bottom:9px solid var(--gold); border-top:0}
+.bt-handoff-label{position:absolute; left:50%; top:22px; transform:translate(-50%,-50%); background:var(--bg); padding:2px 12px;
+font-family:var(--mono); font-size:14px; color:var(--gold-ink); white-space:nowrap; line-height:1.4}
+.bt-handoff-label::after{content:" \2192"}
+/* workflow + guardrails */
+.bt-sec{margin-top:34px; padding-top:26px; border-top:1px solid var(--line)}
+.bt-sec h3{font-family:var(--hand); font-weight:600; font-size:38px; line-height:1.05; margin-bottom:14px}
+.bt-flow{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 22px; counter-reset:s}
+.bt-flow li{counter-increment:s; display:grid; grid-template-columns:34px 1fr; gap:12px; align-items:start; font-size:15px; color:var(--muted); line-height:1.4}
+.bt-flow li::before{content:counter(s); width:30px; height:30px; border-radius:50%; background:var(--gold); color:#000; font-family:var(--mono); font-weight:500; font-size:14px; display:flex;
+align-items:center; justify-content:center}
+.bt-flow b{display:block; color:var(--ink); font-weight:600; font-size:16px}
+.bt-rails{display:flex; flex-wrap:wrap; gap:10px}
+.bt-rails li{font-family:var(--mono); font-size:14px; color:var(--ink); background:var(--surface); border:1px solid var(--field); border-radius:12px; padding:8px 14px; line-height:1.35}
+.bt-foot{margin-top:28px; font-family:var(--mono); font-size:14px; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.bt-foot .sig{font-family:var(--hand); font-weight:600; font-size:26px; color:var(--ink); line-height:1}
+/* wide layout: full-bleed band on desktop (1100px+), workflow left, org chart right */
+@media (min-width:1100px){
+.bt{max-width:1200px; padding:48px 40px 36px; display:grid; grid-template-columns:330px minmax(0,1fr); column-gap:44px;
+grid-template-areas:"head head" "flow org" "rails org" "foot foot"; grid-template-rows:auto auto 1fr auto; align-items:start}
+.bt-head{grid-area:head}
+.bt-org{grid-area:org; margin-top:30px}
+.bt-sec-flow{grid-area:flow; margin-top:30px}
+.bt-sec-rails{grid-area:rails}
+.bt-foot{grid-area:foot}
+.bt-flow{grid-template-columns:1fr}
+.bt-sub{max-width:none}
+}
+/* mobile / tall layout */
+@media (max-width:600px){
+.bt{padding:32px 20px 28px}
+.bt-title{font-size:50px}
+.bt-sub{font-size:17px}
+.bt-grid{grid-template-columns:1fr}
+.bt-grid .bt-rd{grid-template-columns:1fr; gap:0}
+.bt-grid .bt-rd h3{margin-bottom:10px}
+.bt-grid .bt-rd ul li:first-child{margin-top:6px}
+.bt-handoff{grid-column:auto; grid-row:auto; height:52px; margin:-12px 0}
+.bt-handoff-line{left:50%; right:auto; top:0; bottom:0; height:auto; width:0; border:none; border-left:2px solid var(--gold); border-radius:0}
+.bt-handoff-line::after{right:auto; left:-7px; top:auto; bottom:0; border:6px solid transparent; border-top:9px solid var(--gold); border-bottom:0}
+.bt-handoff-label{top:50%; left:50%; font-size:14px}
+.bt-handoff-label::after{content:" \2193"}
+.bt-team{padding:12px}
+.bt-flow{grid-template-columns:1fr}
+.bt-sec h3{font-size:34px}
+}
+.bt{margin-top:34px}
+/* what's inside + rules: numbered lists */
+.numlist{counter-reset:n; margin-top:10px}
+.numlist li{counter-increment:n; display:grid; grid-template-columns:44px 1fr; gap:12px; align-items:baseline; padding:16px 0; border-top:1px solid var(--line); font-size:18px; color:var(--prose)}
+.numlist li:first-child{border-top:none}
+.numlist li::before{content:counter(n, decimal-leading-zero); font-family:var(--mono); font-size:13px; color:var(--gold-ink)}
+.rules li{font-family:var(--hand); font-weight:600; font-size:clamp(26px,3.6vw,34px); line-height:1.15; color:var(--ink)}
+.rules li::before{align-self:center}
+/* prices + checkout forms */
+.prices{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:30px}
+.price{display:flex; flex-direction:column; padding:24px 22px 22px}
+.price .amt{font-family:var(--hand); font-weight:700; font-size:54px; line-height:1; color:var(--gold-ink); margin:12px 0 10px}
+.price p:not(.amt){flex:1; margin-bottom:20px}
+.price .buy{margin-top:auto}
+.price .btn{width:100%; font-size:14px; padding:12px 14px}
+.checkout-msg{font-family:var(--mono); font-size:14px; color:var(--ink); background:var(--surface); border:1px solid var(--gold); border-radius:10px; padding:12px 16px; margin-top:18px;
+max-width:60ch}
+.price-note{font-family:var(--mono); font-size:13px; color:var(--muted); margin-top:18px}
+@media(max-width:739px){.prices{grid-template-columns:1fr}}
+/* featured Team card */
+.prices-featured{grid-template-columns:minmax(0,1.18fr) minmax(0,1fr) minmax(0,1fr); align-items:start; margin-top:44px}
+.prices-featured .price{height:100%}
+.price-pick{border:2px solid var(--gold); box-shadow:0 0 0 4px rgba(242,180,65,.10), 0 18px 40px -18px rgba(242,180,65,.35); padding:26px 24px 24px; position:relative}
+.price-pick .amt{font-size:62px}
+.price-pick h3{font-size:32px}
+.pick-label{display:inline-flex; align-self:flex-start; align-items:center; gap:6px; font-family:var(--mono); font-size:14px; font-weight:500; line-height:1.3;
+color:#000; background:var(--gold); border-radius:999px; padding:4px 12px; margin:0 0 12px}
+.price p.pick-label{flex:none; margin-bottom:12px; color:#000; font-size:14px}
+.pick-star{font-size:12px}
+.incl{margin:0 0 22px; border-top:1px solid var(--line); padding-top:14px}
+.incl li{position:relative; padding-left:18px; font-size:15px; color:var(--prose); line-height:1.5; margin-top:8px}
+.incl li:first-child{margin-top:0}
+.incl li::before{content:""; position:absolute; left:2px; top:.6em; width:7px; height:7px; border-radius:50%; background:var(--gold)}
+.prices-featured .price p:not(.amt):not(.pick-label){flex:none; margin-bottom:16px}
+.btn-alt{background:transparent; color:var(--ink); border:1.5px solid var(--field)}
+.btn-alt:hover{filter:none; border-color:var(--gold-ink); background:rgba(242,180,65,.08)}
+/* price numerals: JetBrains Mono (already loaded) instead of Caveat, so 1 and 7 can't be confused.
+Mono digits are tabular by design; font-variant-numeric makes it explicit. */
+.price .amt{font-family:var(--mono); font-weight:700; font-variant-numeric:tabular-nums lining-nums; font-size:44px; letter-spacing:-.03em; line-height:1; margin:14px 0 12px}
+.price .amt .cur{font-size:.6em; font-weight:500; vertical-align:.42em; margin-right:.06em; letter-spacing:0}
+.price-pick .amt{font-size:56px}
+@media(min-width:740px){
+.prices-featured{align-items:stretch; grid-template-columns:minmax(0,1fr) minmax(0,1.18fr) minmax(0,1fr)}
+/* DOM order is Team, Playbook, Done for you (Team first on mobile). On desktop each card is
+placed in its own column so the row reads in price order: Playbook | Team | Done for you. */
+.prices-featured > .price-playbook{grid-column:1; grid-row:1}
+.prices-featured > .price-pick{grid-column:2; grid-row:1}
+.prices-featured > .price-dfy{grid-column:3; grid-row:1}
+.price-pick{transform:translateY(-12px); margin-bottom:-12px}
+}
+@media(max-width:739px){.prices-featured{grid-template-columns:1fr; margin-top:30px}}
+@media(max-width:739px){.eyebrow a,a.txt{min-height:44px; line-height:44px}}
+/* faq */
+.faq{margin-top:10px}
+.faq li{padding:20px 0; border-top:1px solid var(--line)}
+.faq li:first-child{border-top:none}
+.faq h3{font-size:18px; font-weight:600; color:var(--ink); line-height:1.45}
+.faq p{font-size:17px; color:var(--prose); margin-top:6px; max-width:56ch}
+footer{padding:8vh 0 11vh; border-top:1px solid var(--line)}
+footer .sig{font-family:var(--hand); font-weight:600; font-size:34px}
+footer .fine{font-family:var(--mono); font-size:13px; color:var(--muted); margin-top:12px; max-width:46ch; line-height:1.6}
+a.txt{color:var(--gold-ink); border-bottom:1px solid transparent; transition:border-color .2s; display:inline-block; min-height:24px}
+a.txt:hover{border-color:var(--gold-ink)}
+:focus-visible{outline:2px solid var(--focus); outline-offset:3px; border-radius:3px}
+/* reveals: only hide when JS is running, so no-JS readers and crawlers see everything */
+.js .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1)}
+.js .reveal.in{opacity:1; transform:none}
+@media (max-width:560px){header{padding:9vh 0 8vh} .hero h1{line-height:1.08} .panel{padding:24px 20px 26px}}
+@media (prefers-reduced-motion:reduce){
+.marker svg path,.scribble svg path{animation:none; stroke-dashoffset:0}
+html{scroll-behavior:auto}
+.js .reveal{opacity:1; transform:none; transition:none}
+.btn,a.txt{transition:none}
+}
+
+/* Keep the product page in sync with the homepage's two modes. */
+:root[data-theme="dark"] body{background-image:none}
+:root[data-theme="dark"] .hero-portrait img{filter:invert(1); mix-blend-mode:screen}
+#theme-toggle{display:none; position:fixed; top:12px; right:16px; z-index:10; min-width:44px; min-height:44px; padding:10px 12px; border:1px solid var(--field); border-radius:6px; background:var(--surface); color:var(--muted); font:400 12px var(--mono); cursor:pointer}
+.js #theme-toggle{display:block}
+html.theme-ready.theme-switch,html.theme-ready.theme-switch *,html.theme-ready.theme-switch *::before,html.theme-ready.theme-switch *::after{transition:background-color .2s,color .2s}
+.price .btn:disabled{opacity:1; cursor:not-allowed}
+.price .btn:disabled:hover{filter:none}
+.price .btn-alt:disabled:hover{border-color:var(--field); background:transparent}
+.checkout-preview{margin-bottom:24px}
+@media(prefers-reduced-motion:reduce){html.theme-ready.theme-switch,html.theme-ready.theme-switch *,html.theme-ready.theme-switch *::before,html.theme-ready.theme-switch *::after{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">skip to content</a>
+<button id="theme-toggle" type="button" aria-pressed="false">dark mode</button>
+<header>
+<div class="wrap hero">
+<div class="hero-text">
+<p class="eyebrow"><a href="/">nicholas bivens &nbsp;//&nbsp; biv.xyz</a></p>
+<h1>my web agency runs on
+<span class="marker">8 AI agents.<svg viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M20 34 C70 18, 150 16, 182 30 C194 36, 192 70, 178 84 C160
+98, 56 96, 24 88 C8 83, 8 50, 20 36 C24 32, 36 30, 50 30"/></svg></span>
+<span class="gold line2">i still press <span class="scribble">send.<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M4 7 C50 11, 90 3, 130 6
+C160 8, 180 5, 196 7"/></svg></span></span>
+</h1>
+<p class="hero-sub">My AI agency OS: the bot team, SOPs and 2-week launch workflow behind <b>a real SEO/AEO web agency</b>. A human approves everything. Eight roles. One system.</p>
+<a class="btn" href="#pricing">Get the team &rarr;</a>
+</div>
+<figure class="hero-portrait">
+<img src="/biv.jpg" width="1024" height="1024" alt="Line drawing of Nicholas Bivens" fetchpriority="high">
+</figure>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<section aria-labelledby="team-h">
+<div class="wrap">
+<h2 class="lede reveal" id="team-h">the team. <span class="gold">8 bots, 1 human.</span></h2>
+</div>
+<!-- Team visual: Kit's team graphic v2.1, 8 roles (deliverables/graphics/team-graphic.html), v6 baseline.
+Figure title changed from h2 to p because this section already has an h2.  -->
+<figure class="bt" aria-labelledby="bt-title" aria-describedby="bt-sub">
+<div class="bt-head">
+<p class="bt-eyebrow">the bot team &nbsp;//&nbsp; biv.xyz</p>
+<p class="bt-title" id="bt-title">8 agents. <span class="g">1 human in charge.</span></p>
+<p class="bt-sub" id="bt-sub">The agents draft and check. <b>You approve</b> anything that goes live, gets sent, or changes a server.</p>
+</div>
+<div class="bt-org">
+<div class="bt-card bt-op">
+<span class="bt-tag">the one human in charge</span>
+<h3>You <span class="who">the operator</span></h3>
+<ul><li>Approves anything that goes live or gets sent</li><li>Writes the long-form and owns the client relationship</li></ul>
+</div>
+<div class="bt-stem" aria-hidden="true"></div>
+<div class="bt-card bt-hub">
+<span class="bt-tag">the ops hub</span>
+<h3>Chief of Staff</h3>
+<ul><li>Routes every request to one owner</li><li>Shared docs, client roster, integrations log</li><li>Pass or fail before every push</li></ul>
+</div>
+<div class="bt-stem" aria-hidden="true"></div>
+<div class="bt-team">
+<p class="bt-team-h">the specialists</p>
+<ul class="bt-grid">
+<li class="bt-card"><span class="bt-tag">search + AI answers</span><h3>SEO/AEO</h3>
+<ul><li>Audits for search engines and AI answers</li><li>Sitemaps, schema and llms.txt</li><li>Accessibility and cookie/tracker checks</li></ul></li>
+<li class="bt-card"><span class="bt-tag">words</span><h3>Copy</h3>
+<ul><li>Titles, meta, H2s and FAQs</li><li>Edits your drafts, keeps your voice</li><li>Drafts privacy and cookie notices for approval</li></ul></li>
+<li class="bt-card"><span class="bt-tag">visuals</span><h3>Design</h3>
+<ul><li>Page mockups and layouts</li><li>Logos, brand and share images</li><li>Accessible by design (WCAG AA)</li></ul></li>
+<li class="bt-card"><span class="bt-tag">wordpress</span><h3>Site Ops</h3>
+<ul><li>Builds on staging in WordPress</li><li>Screenshots for review, then QA</li><li>Compliance fixes and change requests</li></ul></li>
+<li class="bt-card bt-dev"><span class="bt-tag">code</span><h3>Developer</h3>
+<ul><li>Writes code on branches and pull requests</li><li>Hands off to Dev Ops to deploy</li></ul></li>
+<li class="bt-handoff" aria-hidden="true"><span class="bt-handoff-line"></span><span class="bt-handoff-label">hands off to deploy</span></li>
+<li class="bt-card bt-ops"><span class="bt-tag">hosting and deploys</span><h3>Dev Ops</h3>
+<ul><li>Hosting and deploys, backups, security headers</li><li>Uptime and SSL monitoring</li><li>Never changes a server without a yes</li></ul></li>
+<li class="bt-card bt-rd"><div class="bt-rd-h"><span class="bt-tag">kept separate</span><h3>R&amp;D</h3></div>
+<ul><li>Side projects and experiments, walled off from client work</li><li>Can borrow the other agents when needed</li></ul></li>
+</ul>
+</div>
+</div>
+<div class="bt-sec bt-sec-flow">
+<h3>how work flows.</h3>
+<ol class="bt-flow">
+<li><span><b>Kickoff</b>You approve the client and intake</span></li>
+<li><span><b>Setup and architecture</b>Dev Ops on hosting, SEO/AEO on the sitemap</span></li>
+<li><span><b>Brand and copy</b>Design and Copy draft, you approve</span></li>
+<li><span><b>Build on staging</b>Site Ops builds, screenshots for review</span></li>
+<li><span><b>Pre-push QA</b>SEO/AEO, Site Ops and Dev Ops check; Chief of Staff gives pass or fail</span></li>
+<li><span><b>Go live</b>You push, then cache purge and re-crawl</span></li>
+<li><span><b>Monitor</b>Uptime, SSL and backups</span></li>
+</ol>
+</div>
+<div class="bt-sec bt-sec-rails">
+<h3>guardrails.</h3>
+<ul class="bt-rails">
+<li>Nothing goes live without approval</li>
+<li>Draft before sending</li>
+<li>Staging first; you push</li>
+<li>QA and a fresh backup before every push</li>
+<li>No server changes without a yes</li>
+<li>No legal advice</li>
+</ul>
+</div>
+<figcaption class="bt-foot"><span>Roles, not names. Name your own agents.</span><span>biv.xyz</span></figcaption>
+</figure>
+</section>
+<section aria-labelledby="inside-h">
+<div class="wrap">
+<h2 class="lede reveal" id="inside-h">what's inside.</h2>
+<ol class="numlist panel reveal">
+<li>A written SOP for every bot</li>
+<li>A 29-step, 2-week website launch workflow</li>
+<li>A compliance split: accessibility, privacy and cookie notices, SSL, security headers</li>
+<li>A pre-launch QA pass and a fresh backup before anything goes live</li>
+</ol>
+</div>
+</section>
+<section aria-labelledby="rules-h">
+<div class="wrap">
+<h2 class="lede reveal" id="rules-h">the rules the bots <span class="gold">live by.</span></h2>
+<ol class="numlist rules reveal">
+<li>A human approves anything that goes live</li>
+<li>Nothing gets sent without my OK</li>
+<li>No legal advice</li>
+<li>AI drafts; people write the final word</li>
+</ol>
+</div>
+</section>
+<section id="pricing" aria-labelledby="price-h" tabindex="-1">
+<div class="wrap">
+<h2 class="lede reveal" id="price-h">pick one.</h2>
+<p class="prose reveal">Pay once. Yours to keep. Every option has a 14-day money-back guarantee.</p>
+<p class="checkout-msg" id="checkoutMsg" role="status" tabindex="-1" hidden></p>
+<!-- Reading order: Team is first in the DOM, so on mobile (one column) reading, focus and visual order all match.
+On desktop (740px+) grid-column placement shows Playbook | Team | Done for you in price order, while
+reading and Tab order stay Team, Playbook, Done for you: the featured option first, the rest in price order.
+No CSS `order` property is used. (WCAG 1.3.2 / 2.4.3) -->
+<ul class="prices prices-featured reveal">
+<li class="card price price-pick" id="tier-team">
+<p class="pick-label"><span class="pick-star" aria-hidden="true">&#9733;</span> the one i'd get</p>
+<span class="tag">playbook + templates</span>
+<h3>The Team</h3>
+<p class="amt"><span class="cur">$</span>199</p>
+<p>The whole playbook plus all 8 agents, ready to import into Grok Bot.</p>
+<ul class="incl" aria-label="Included in The Team">
+<li>8 agent templates for Grok Bot, including the Developer</li>
+<li>The full playbook: every SOP, workflow, checklist and template</li>
+<li>The install guide, as a PDF and editable Markdown</li>
+<li>11-step setup: hosting, code host, project board, agency inbox and Mission Control</li>
+</ul>
+<form class="buy" method="POST" action="/api/checkout"><input type="hidden" name="tier" value="team"><button class="btn" type="submit">Get it<span class="sr-only">: The Team</span>
+&rarr;</button></form>
+</li>
+<li class="card price price-playbook">
+<span class="tag">PDF + Markdown</span>
+<h3>The Playbook</h3>
+<p class="amt"><span class="cur">$</span>79</p>
+<p>The whole playbook. You set up the agents yourself, on any AI tool.</p>
+<ul class="incl" aria-label="Included in The Playbook">
+<li>One SOP for each of the 8 roles</li>
+<li>The 2-week launch workflow and email triage</li>
+<li>QA, go-live and compliance checklists</li>
+<li>PDF plus editable Markdown files</li>
+</ul>
+<form class="buy" method="POST" action="/api/checkout"><input type="hidden" name="tier" value="playbook"><button class="btn btn-alt" type="submit">Get it<span class="sr-only">: The
+Playbook</span> &rarr;</button></form>
+</li>
+<li class="card price price-dfy">
+<span class="tag">personal setup</span>
+<h3>Done for you</h3>
+<p class="amt"><span class="cur">$</span>1,999</p>
+<p>Skip the setup. I set the team up in your accounts for you. Includes everything in The Team.</p>
+<ul class="incl" aria-label="Included in Done for you">
+<li>A kickoff call to go through your accounts</li>
+<li>I set up the agent team for you</li>
+<li>Kickoff call after checkout</li>
+</ul>
+<form class="buy" method="POST" action="/api/checkout"><input type="hidden" name="tier" value="dfy"><button class="btn btn-alt" type="submit">Get set up<span class="sr-only">: Done for
+you</span> &rarr;</button></form>
+</li>
+</ul>
+<p class="price-note reveal">Pay securely on Stripe and receive your download link on the confirmation page and by email. Done for you also includes a kickoff call to arrange your setup. Questions: <a class="txt" href="mailto:me@biv.xyz">me@biv.xyz</a></p>
+</div>
+</section>
+<section aria-labelledby="faq-h">
+<div class="wrap">
+<h2 class="lede reveal" id="faq-h">faq.</h2>
+<ul class="faq reveal">
+<li><h3>What is an AI agency?</h3><p>A business that does client work with AI agents doing most of the drafting and checking. Mine is a web agency: 8 agents audit, write, design and build, and I
+approve everything before it ships.</p></li>
+<li><h3>How do you build an AI agency?</h3><p>Write an SOP for every repeat task, give each task to an agent, and keep a human approval step before anything goes live. That's the setup this page
+packages.</p></li>
+<li><h3>Is this for new or existing agencies?</h3><p>Both. It's built from a real, working small agency.</p></li>
+<li><h3>Will this get me clients?</h3><p>No. It runs the work, not your sales. Finding clients is still on you.</p></li>
+<li><h3>Do the AI agents act on their own?</h3><p>No. They draft and check. I approve anything that goes live or gets sent.</p></li>
+<li><h3>What do I need to run it?</h3><p>An AI assistant plan and access to your own tools: email, Drive, WordPress and hosting. The Team's eight agent templates import into Grok Bot. Its install
+guide covers connecting your hosting provider, a code host for the Developer (optional) and the project tool you already use.</p></li>
+<li><h3>How fast do I get it?</h3><p>You’ll get your download immediately after confirmed payment, with the same link sent by email. Done for you also includes a kickoff call to arrange your setup.</p></li>
+<li><h3>How are the files delivered?</h3><p>As a download. The Playbook is a ZIP with a formatted PDF plus every SOP, workflow and checklist as editable Markdown files. The Team adds the install
+guide and links to the eight agent templates. Done for you includes the Team download.</p></li>
+<li><h3>Can I get a refund?</h3><p>Yes. There's a 14-day money-back guarantee from the date of purchase. Email <a class="txt" href="mailto:me@biv.xyz">me@biv.xyz</a> and I'll refund you through
+Stripe.</p></li>
+</ul>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<p class="sig">- biv</p>
+<p class="fine">Built by Biv. One human, eight bots. Experimental.</p>
+<p class="fine"><a class="txt" href="/">&larr; back to biv.xyz</a></p>
+</div>
+</footer>
+<script>
+document.documentElement.classList.add('js');
+/* checkout return states: ?checkout=cancelled | error | unavailable (set by Stripe cancel_url or /api/checkout) */
+(function(){
+var s = new URLSearchParams(location.search).get('checkout');
+var msgs = {
+cancelled: 'Checkout cancelled. Nothing was charged.',
+error: "Checkout didn't start. Try again in a minute, or email me@biv.xyz.",
+unavailable: "That option isn't available yet. Email me@biv.xyz and I'll tell you when it is."
+};
+if(!msgs[s]) return;
+var el = document.getElementById('checkoutMsg');
+el.textContent = msgs[s];
+el.hidden = false;
+})();
+/* scroll reveals (skipped entirely under reduced motion) */
+(function(){
+var els = document.querySelectorAll('.reveal');
+var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(still || !('IntersectionObserver' in window)){
+els.forEach(function(el){ el.classList.add('in'); });
+return;
+}
+var io = new IntersectionObserver(function(entries){
+entries.forEach(function(en){
+if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+});
+}, {rootMargin:'0px 0px -10% 0px', threshold:0.15});
+els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

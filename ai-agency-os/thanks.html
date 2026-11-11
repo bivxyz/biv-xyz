@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Your AI Agency OS order | biv.xyz</title>
+<link rel="icon" type="image/jpeg" href="/biv.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  /* Resolve before CSS paints. A visitor's explicit choice wins over the device. */
+  (function(){
+    var root=document.documentElement, key='biv.theme.v1', choice=null;
+    var device=window.matchMedia('(prefers-color-scheme: dark)');
+    try{
+      var saved=JSON.parse(localStorage.getItem(key));
+      if(saved==='light'||saved==='dark') choice=saved;
+    }catch(e){ /* choice stays in memory when storage is unavailable */ }
+    function apply(){
+      var dark=(choice||(device.matches?'dark':'light'))==='dark';
+      root.dataset.theme=dark?'dark':'light';
+      var button=document.getElementById('theme-toggle');
+      if(button) button.setAttribute('aria-pressed',String(dark));
+    }
+    var fadeTimer;
+    function change(){
+      if(root.classList.contains('theme-ready')){
+        root.classList.add('theme-switch');
+        clearTimeout(fadeTimer);
+        fadeTimer=setTimeout(function(){root.classList.remove('theme-switch')},220);
+      }
+      apply();
+    }
+    root.classList.add('js');
+    apply();
+    document.addEventListener('DOMContentLoaded',function(){
+      var button=document.getElementById('theme-toggle');
+      apply();
+      button.addEventListener('click',function(){
+        choice=root.dataset.theme==='dark'?'light':'dark';
+        try{localStorage.setItem(key,JSON.stringify(choice))}catch(e){}
+        change();
+      });
+      window.addEventListener('storage',function(event){
+        if(event.key!==key&&event.key!==null) return;
+        try{var value=JSON.parse(event.newValue);choice=value==='light'||value==='dark'?value:null}catch(e){choice=null}
+        change();
+      });
+    });
+    device.addEventListener('change',function(){if(!choice) change()});
+    window.addEventListener('load',function(){requestAnimationFrame(function(){root.classList.add('theme-ready')})});
+  })();
+</script>
+<style>
+  :root{
+    color-scheme:light;
+    --bg:#F7F4EC; --surface:#FFFDF8; --ink:#1F2119; --prose:#34362D;
+    --muted:#5C5E54; --faint:#6B6C63; --line:#E3DDCF; --hover-line:#8F8A7C;
+    --gold:#F2B441; --gold-ink:#8A5C00; --on-gold:#000; --err:#B23C1C;
+    --field:#8F8A7C; --focus:#8A5C00; --dot:#D4CCB8;
+    --gold-glow:rgba(242,180,65,.20); --transparent:transparent;
+    --hand:"Caveat", cursive;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+    --body:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#0c0c0d; --surface:#161617; --ink:#f4f2ec; --prose:#cfcdc6;
+    --muted:#9a9a92; --faint:#8A8A82; --line:#2a2a2c; --hover-line:#3a3a3d;
+    --gold:#f2b441; --gold-ink:#f2b441; --on-gold:#000; --err:#e0714f;
+    --field:#6e6e68; --focus:#f2b441; --dot:transparent;
+  }
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);color-scheme:light}
+html[data-theme="dark"]{color-scheme:dark}
+body{background-color:var(--bg);background-image:radial-gradient(var(--dot) 1px,transparent 1.4px);background-size:22px 22px;color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased}
+:root[data-theme="dark"] body{background-image:none}
+a{color:var(--gold-ink);text-underline-offset:4px}
+.wrap{width:100%;max-width:760px;margin:auto;padding:0 28px}
+header{padding:100px 0 36px}
+.eyebrow{font:12px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+main{padding-bottom:64px}
+h1{font:700 clamp(46px,8vw,72px)/1.05 var(--hand);margin-bottom:24px}
+h2{font:600 36px/1.1 var(--hand);margin-bottom:14px}
+p{margin:14px 0;color:var(--prose);font-size:18px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;margin-top:28px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:var(--gold);color:var(--on-gold);border:1px solid var(--gold);border-radius:10px;padding:12px 20px;font:500 14px var(--mono);text-decoration:none}
+.btn-alt{background:transparent;border-color:var(--field);color:var(--ink)}
+.fine{font:13px/1.7 var(--mono);color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 60px}
+.sig{font:600 34px var(--hand);color:var(--ink)}
+.skip{position:fixed;top:-100px;left:16px;z-index:20;padding:12px 18px;background:var(--gold);color:#000}
+.skip:focus{top:16px}
+#theme-toggle{display:none;position:fixed;top:12px;right:16px;z-index:10;min-width:44px;min-height:44px;padding:10px 12px;border:1px solid var(--field);border-radius:6px;background:var(--surface);color:var(--muted);font:12px var(--mono);cursor:pointer}
+.js #theme-toggle{display:block}
+:focus-visible{outline:2px solid var(--focus);outline-offset:4px}
+[hidden]{display:none!important}
+html.theme-ready.theme-switch,html.theme-ready.theme-switch *,html.theme-ready.theme-switch *::before,html.theme-ready.theme-switch *::after{transition:background-color .2s,color .2s}
+@media(prefers-reduced-motion:reduce){html.theme-ready.theme-switch,html.theme-ready.theme-switch *,html.theme-ready.theme-switch *::before,html.theme-ready.theme-switch *::after{transition:none!important}}
+@media(max-width:480px){.panel{padding:24px 20px}.actions{flex-direction:column}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">skip to content</a>
+<button id="theme-toggle" type="button" aria-pressed="false">dark mode</button>
+<header class="wrap"><a class="eyebrow" href="/">nicholas bivens // biv.xyz</a></header>
+<main class="wrap" id="main" tabindex="-1">
+<div id="checking" role="status"><h1>checking your payment.</h1><p>One moment while I confirm your order with Stripe.</p></div>
+<div id="paid" hidden>
+<h1 id="paid-heading" tabindex="-1">you’re in.</h1>
+<p>Your payment for <strong id="tier-name"></strong> is confirmed.</p>
+<section class="panel" aria-labelledby="files-heading">
+<h2 id="files-heading">your files.</h2>
+<p id="download-copy"></p>
+<div class="actions"><a class="btn" id="download" hidden></a></div>
+<p class="fine">Save your ZIP after downloading. It includes the formatted PDF and editable Markdown files.</p>
+</section>
+<section class="panel" id="kickoff" aria-labelledby="kickoff-heading" hidden>
+<h2 id="kickoff-heading">next step: your kickoff call.</h2>
+<p id="kickoff-copy">You don’t need to book anything. I’ll reach out to you personally to set up your kickoff call.</p>
+<p>On the call, we go through your accounts. Then I set the team up for you.</p>
+<div class="actions"><a class="btn" id="booking" hidden>Book your kickoff call →</a></div>
+</section>
+<p class="fine">There’s a 14-day money-back guarantee from the date of purchase. Questions or a refund: <a href="mailto:me@biv.xyz">me@biv.xyz</a>.</p>
+</div>
+<div id="not-confirmed" hidden>
+<h1 id="unpaid-heading" tabindex="-1">not confirmed yet.</h1>
+<p id="unpaid-copy">I couldn’t confirm a completed payment. If your payment is still processing, check again in a moment. No files are available until payment is confirmed.</p>
+<p>If Stripe shows a successful payment and this keeps happening, email <a href="mailto:me@biv.xyz">me@biv.xyz</a>.</p>
+<div class="actions"><button class="btn" id="retry" type="button">Check again</button><a class="btn btn-alt" href="/ai-agency-os#pricing">See the options →</a></div>
+</div>
+<noscript><div class="panel"><h2>need a hand?</h2><p>JavaScript is needed to verify your payment on this page. For help getting your files, email <a href="mailto:me@biv.xyz">me@biv.xyz</a>.</p></div></noscript>
+</main>
+<footer><div class="wrap"><p class="sig">- biv</p><p class="fine">One human. Eight bots.</p><a href="/">← back to biv.xyz</a></div></footer>
+<script>
+(function(){
+  var checking=document.getElementById('checking'), paid=document.getElementById('paid'), pending=document.getElementById('not-confirmed');
+  var id=new URLSearchParams(location.search).get('session_id');
+  var retries=document.getElementById('retry');
+  var running=false;
+  async function check(){
+    if(running) return;
+    running=true;
+    checking.hidden=false; paid.hidden=true; pending.hidden=true;
+    try{
+      if(!id || !/^cs_(test|live)_[A-Za-z0-9]{12,200}$/.test(id)) throw new Error('missing');
+      var response=await fetch('/api/session?session_id='+encodeURIComponent(id),{cache:'no-store',signal:AbortSignal.timeout(20000)});
+      if(!response.ok) throw new Error('verification');
+      var data=await response.json();
+      if(!data.paid) throw new Error('unpaid');
+      if(!['playbook','team','dfy'].includes(data.tier) || !['playbook','team'].includes(data.file)) throw new Error('invalid');
+      var url=new URL(data.download,location.origin);
+      if(url.origin!==location.origin || url.pathname!=='/api/download') throw new Error('invalid');
+      document.getElementById('tier-name').textContent=data.name;
+      document.getElementById('download-copy').textContent=data.file==='playbook'?'The Playbook: all 8 role SOPs, workflows, checklists and templates.':'The Team: the full Playbook, install guide and links to all 8 Grok Bot templates.';
+      var download=document.getElementById('download');
+      download.href=url.href;
+      download.textContent=data.file==='playbook'?'Download the Playbook →':'Download the Team →';
+      download.hidden=false;
+      document.getElementById('booking').hidden=true;
+      document.getElementById('kickoff').hidden=true;
+      if(data.tier==='dfy'){
+        document.getElementById('kickoff-copy').textContent='You don’t need to book anything. I’ll reach out to you personally to set up your kickoff call.';
+        if(data.booking){
+          var booking=new URL(data.booking);
+          if(booking.protocol!=='https:' || booking.username || booking.password) throw new Error('invalid');
+          document.getElementById('booking').href=booking.href;
+          document.getElementById('booking').hidden=false;
+          document.getElementById('kickoff-copy').textContent='First, book your kickoff call.';
+        }
+        document.getElementById('kickoff').hidden=false;
+      }
+      checking.hidden=true;paid.hidden=false;
+      document.getElementById('paid-heading').focus();
+    }catch(e){
+      checking.hidden=true;pending.hidden=false;
+      document.getElementById('unpaid-heading').focus();
+    }finally{running=false;}
+  }
+  retries.addEventListener('click',check);
+  check();
+})();
+</script>
+</body>
+</html>
